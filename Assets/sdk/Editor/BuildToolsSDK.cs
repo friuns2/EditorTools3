@@ -26,7 +26,7 @@ public partial class BuildToolsSDK : EditorWindow
         var d = SceneManager.GetActiveScene();
         EditorSceneManager.SaveScene(d);
         
-        var assetBundleName = d.name + ".unity3dlevel" + target;
+        var assetBundleName = d.name + (target == BuildTarget.StandaloneWindows? ".unity3dwindows" :".unity3dandroid");
         var build = new AssetBundleBuild() {assetNames = new[] {d.path}, assetBundleName = assetBundleName};
         var bundlesDir = "AssetBundles";
         Directory.CreateDirectory(bundlesDir);
